@@ -37,6 +37,7 @@ body {
   right: 82px;
   margin-top: 50px;
   z-index: 100;
+  transition: all 0.5s ease-in-out;
 }
 
 .menu-btn button {
@@ -99,10 +100,12 @@ body {
 .homepage .overlay h1 {
   text-transform: uppercase;
   font-size: 96px;
+  transition: all 0.5s ease-in-out;
 }
 
 .homepage .overlay p {
   font-size: 36px;
+  transition: all 0.5s ease-in-out;
 }
 
 .homepage .overlay ul {
@@ -198,11 +201,11 @@ body {
   }
 
   .homepage .overlay h1 {
-    font-size: 48px;
+    font-size: 44px;
   }
 
   .homepage .overlay p {
-    font-size: 18px;
+    font-size: 16.5px;
   }
 
   .header {
