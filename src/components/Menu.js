@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { BiMenu } from 'react-icons/bi'
+import { BiMenu, BiX } from 'react-icons/bi'
 import { navbar } from '../data/navbar'
 
 const Menu = () => {
@@ -12,7 +12,7 @@ const Menu = () => {
     <>
       <div className="menu-btn">
         <button onClick={() => setIsOpen(!isOpen)}>
-          <BiMenu />
+          {isOpen ? <BiX /> : <BiMenu />}
         </button>
       </div>
       <header className={`${isOpen ? "header open" : "header"}`}>

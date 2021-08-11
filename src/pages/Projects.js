@@ -15,11 +15,13 @@ const Projects = () => {
             <article key={id}>
               <div className="card-outline">
                 <img src={image} alt={title} className="card-image" />
-                <h4>{title}</h4>
-                <p>{desc}</p>
-                <ul>
-                  <li><a href={github} target="_blank" rel="noopener noreferrer" className="github"><FaGithub style={{ marginRight: 5 }} />Github</a></li>
-                </ul>
+                <div className="card-text">
+                  <h4>{title}</h4>
+                  <p>{desc}</p>
+                  <ul>
+                    <li><a href={github} target="_blank" rel="noopener noreferrer" className="github"><FaGithub style={{ marginRight: 5 }} />Github</a></li>
+                  </ul>
+                </div>
               </div>
             </article>
           ))}
