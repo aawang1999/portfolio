@@ -127,6 +127,7 @@ body {
 
 .projects {
   background-image: var(--background-image);
+  height: 100vh;
 }
 
 .projects h1 {
@@ -134,56 +135,61 @@ body {
   color: #fff;
 }
 
-.projects .cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 1100px;
-  margin: auto;
-  gap: 40px;
-  color: #fff;
-  padding-bottom: 50px;
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-.projects .cards h4 {
+.carousel {
+  width: 90%;
+}
+
+.card-text h4 {
   font-size: 24px;
   margin-bottom: 10px;
 }
 
-.projects .cards p {
+.card-text p {
   font-size: 16px;
   margin-bottom: 30px;
 }
 
-.projects .cards .card-outline {
+.card-outline {
   background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-  height: 100%;
+  border-radius: 10px;
+  height: 450px;
+  position: relative;
 }
 
-.projects .cards .card-text {
+.card-text {
   margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  color: #fff;
 }
 
-.projects .cards .card-image {
-  border-radius: 5px 5px 0 0 ;
+.card-image {
+  border-radius: 10px 10px 0 0 ;
 }
 
-.projects .cards ul li a {
+.card-outline ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
 }
 
-.projects .cards ul li a.github {
+.card-outline ul li a.github {
   background-color: rgba(72, 105, 155, 0.9);
   border-radius: 5px;
   padding: 10px;
   width: 100px;
+  position: absolute;
+  bottom: 20px;
+  right: calc(50% - 50px);
 }
 
 /*========== Responsive ==========*/
