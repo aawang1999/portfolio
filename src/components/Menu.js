@@ -12,7 +12,7 @@ const Menu = () => {
     <>
       <div className="menu-btn">
         <button onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <BiX /> : <BiMenu />}
+          {isOpen ? <BiX className="menu-btn-icon" /> : <BiMenu className="menu-btn-icon" />}
         </button>
       </div>
       <header className={`${isOpen ? "header open" : "header"}`}>
@@ -21,7 +21,7 @@ const Menu = () => {
             {links.map(({ id, url, title }) => {
               return (
                 <li key={id} onClick={() => setIsOpen(false)}>
-                  <Link to={url}>{title}</Link>
+                  <Link className="header-link" to={url}>{title}</Link>
                 </li>
               )
             })}

@@ -2,7 +2,9 @@
 
 :root {
   --background-image: linear-gradient(120deg, rgba(72, 146, 155, 0.9), rgba(169, 210, 215, 0.9));
-  --background-overlay: rgba(35, 70, 75, 0.9);
+  --background-overlay: rgba(35, 70, 75);
+  --button-highlight: rgba(190, 114, 181);
+  --white-transparent: rgba(255, 255, 255, 0.3);
 }
 
 * {
@@ -36,7 +38,7 @@ body {
   position: absolute;
   right: 85px;
   margin-top: 50px;
-  z-index: 100;
+  z-index: 1000;
   transition: all 0.5s ease-in-out;
 }
 
@@ -48,6 +50,11 @@ body {
   cursor: pointer;
 }
 
+.menu-btn-icon:hover {
+  color: var(--button-highlight);
+  transition: all 0.5s ease-in-out;
+}
+
 /*========== Header ==========*/
 
 .header {
@@ -57,11 +64,14 @@ body {
   overflow: hidden;
   width: 200px;
   transition: all 0.5s ease-in-out;
+  z-index: 100;
 }
 
 .header.open {
   height: 100%;
   background-color: var(--background-overlay);
+  position: absolute;
+  z-index: 100;
 }
 
 .header nav ul {
@@ -76,9 +86,16 @@ body {
   margin: 20px 0;
 }
 
-/*========== Homepage ==========*/
+.header-link:hover {
+  color: var(--button-highlight);
+  transition: all 0.5s ease-in-out;
+}
 
-.homepage {
+/*========== Pages ==========*/
+
+.homepage, 
+.about,
+.projects {
   background: url('./showcase.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -86,15 +103,28 @@ body {
   height: 100vh;
 }
 
-.homepage .overlay {
+.homepage .overlay,
+.about .overlay, 
+.projects .overlay {
   background-image: var(--background-image);
+  min-height: 100vh;
+}
+
+.about h1,
+.projects h1 {
+  padding: 50px 80px;
+  color: #fff;
+}
+
+/*========== Homepage ==========*/
+
+.homepage .overlay {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  color: #fff;
   text-align: center;
+  color: #fff;
 }
 
 .homepage .overlay h1 {
@@ -121,24 +151,88 @@ body {
 
 .homepage .overlay ul li a {
   font-size: 36px;
+  transition: all 0.5s ease-in-out;
+}
+
+.homepage .overlay ul li a:hover {
+  color: var(--button-highlight);
+}
+
+/*========== About ==========*/
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding-bottom: 50px;
+}
+
+.about-card {
+  width: 25%;
+  text-align: center;
+  margin: 0 20px;
+  color: #fff;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease-in-out;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.about-card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.about-card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.about-card-face p {
+  padding: 20px;
+}
+
+.about-card-face-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white-transparent);
+}
+
+.about-card-face-back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white-transparent);
 }
 
 /*========== Projects ==========*/
 
 .projects {
-  background-image: var(--background-image);
-  height: 100vh;
-}
-
-.projects h1 {
-  padding: 50px 80px;
-  color: #fff;
+  position: relative;
 }
 
 .carousel-container {
   display: flex;
   justify-content: center;
   margin-top: 30px;
+  padding-bottom: 50px;
 }
 
 .carousel {
@@ -156,10 +250,11 @@ body {
 }
 
 .card-outline {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--white-transparent);
   border-radius: 10px;
   height: 450px;
   position: relative;
+  z-index: 1;
 }
 
 .card-text {
@@ -183,13 +278,78 @@ body {
 }
 
 .card-outline ul li a.github {
-  background-color: rgba(72, 105, 155, 0.9);
-  border-radius: 5px;
+  background-color: #fff;
+  border-radius: 50px;
   padding: 10px;
   width: 100px;
   position: absolute;
   bottom: 20px;
   right: calc(50% - 50px);
+  color: var(--button-highlight);
+  transition: all 0.5s ease-in-out;
+}
+
+.card-outline ul li a.github:hover {
+  background-color: var(--button-highlight);
+  color: #fff;
+}
+
+/*========== Arrows ==========*/
+
+.rec.rec-arrow {
+  background-color: var(--white-transparent);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rec.rec-arrow:hover:enabled, 
+.rec.rec-arrow:focus:enabled {
+  background-color: var(--button-highlight);
+}
+
+.rec-arrow:disabled {
+  color: transparent;
+  background-color: transparent;
+}
+
+/*========== Pagination ==========*/
+
+.rec.rec-dot {
+  background-color: #fff;
+  box-shadow: none;
+}
+
+.rec.rec-dot:hover, 
+.rec.rec-dot:focus, 
+.rec.rec-dot.rec-dot_active {
+  background-color: var(--button-highlight);
+  box-shadow: none;
+}
+
+/*========== Footer ==========*/
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-overlay);
+  height: 200px;
+}
+
+.footer-icons a {
+  margin: 0 20px;
+  font-size: 36px;
+}
+
+.footer-icons a:hover {
+  color: var(--button-highlight);
+  transition: all 0.5s ease-in-out;
+}
+
+.footer-copyright {
+  color: #fff;
+  margin-top: 20px;
 }
 
 /*========== Responsive ==========*/
@@ -242,7 +402,28 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .about h1,
   .projects h1 {
     visibility: hidden;
+  }
+
+  .rec-arrow {
+    display: none;
+  }
+
+  .carousel-container {
+    margin-top: 0;
+  }
+}
+
+@media (max-height: 700px) {
+  .footer-container {
+    display: none;
+    visibility: hidden;
+  }
+
+  .about,
+  .projects {
+    background: none;
   }
 }

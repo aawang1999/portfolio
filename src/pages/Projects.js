@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { projects } from '../data/projects'
 import { FaGithub } from 'react-icons/fa'
 import Carousel from 'react-elastic-carousel'
+import Footer from '../components/Footer'
 
 const Projects = () => {
   //eslint-disable-next-line
@@ -16,28 +17,31 @@ const Projects = () => {
   return (
     <>
       <section className="projects">
-        <h1>Projects</h1>
-        <div className="carousel-container">
-          <div className="carousel">
-            <Carousel breakPoints={breakPoints} itemsToScroll={3} itemPadding={[0, 20, 0, 20]}>
-              {cards.map(({ id, title, desc, github, image }) => (
-                <article key={id}>
-                  <div className="card-outline">
-                    <img src={image} alt={title} className="card-image" />
-                    <div className="card-text">
-                      <h4>{title}</h4>
-                      <p>{desc}</p>
+        <div className="overlay">
+          <h1>Projects</h1>
+          <div className="carousel-container">
+            <div className="carousel">
+              <Carousel breakPoints={breakPoints} itemsToScroll={1} itemPadding={[0, 20, 0, 20]}>
+                {cards.map(({ id, title, desc, github, image }) => (
+                  <article key={id}>
+                    <div className="card-outline">
+                      <img src={image} alt={title} className="card-image" />
+                      <div className="card-text">
+                        <h4>{title}</h4>
+                        <p>{desc}</p>
+                      </div>
+                      <ul>
+                        <li><a href={github} target="_blank" rel="noopener noreferrer" className="github"><FaGithub style={{ marginRight: 5 }} />Github</a></li>
+                      </ul>
                     </div>
-                    <ul>
-                      <li><a href={github} target="_blank" rel="noopener noreferrer" className="github"><FaGithub style={{ marginRight: 5 }} />Github</a></li>
-                    </ul>
-                  </div>
-                </article>
-              ))}
-            </Carousel>
+                  </article>
+                ))}
+              </Carousel>
+            </div>
           </div>
         </div>
       </section>
+      <Footer />
     </>
   )
 }
