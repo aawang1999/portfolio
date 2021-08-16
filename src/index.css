@@ -160,23 +160,24 @@ body {
 
 /*========== About ==========*/
 
-.about-container {
+.about-container,
+.about-card,
+.about-card-face {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.about-container {
   margin-top: 30px;
   padding-bottom: 50px;
 }
 
 .about-card {
-  width: 25%;
+  width: 100%;
   text-align: center;
-  margin: 0 20px;
   color: #fff;
   height: 450px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .about-card-inner {
@@ -201,25 +202,76 @@ body {
   overflow: hidden;
   border-radius: 10px;
   transition: all 0.5s ease-in-out;
-}
-
-.about-card-face p {
-  padding: 20px;
-}
-
-.about-card-face-front {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: var(--white-transparent);
+}
+
+.about-card-icon {
+  font-size: 36px;
+  margin-right: 10px;
 }
 
 .about-card-face-back {
   transform: rotateY(180deg);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: var(--white-transparent);
+}
+
+.about-text-center {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 20px;
+}
+
+.about-text-center p {
+  margin: 2px 0;
+}
+
+.line,
+.skills-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.line {
+  width: 100%;
+}
+
+.skills-title {
+  width: 80%;
+  margin: 10px 0;
+}
+
+.skills-title p {
+  text-align: left;
+}
+
+.skills-bar-container {
+  background-color: #fff;
+  width: 80%;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.skills-bar {
+  background-color: var(--button-highlight);
+  color: #ffff;
+  padding: 5px;
+  text-align: right;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.bar-80 {
+  width: 80%;
+}
+
+.bar-60 {
+  width: 60%;
+}
+
+.bar-40 {
+  width: 40%;
 }
 
 /*========== Projects ==========*/
@@ -239,6 +291,15 @@ body {
   width: 90%;
 }
 
+.card-text {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
 .card-text h4 {
   font-size: 24px;
   margin-bottom: 10px;
@@ -255,15 +316,6 @@ body {
   height: 450px;
   position: relative;
   z-index: 1;
-}
-
-.card-text {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: #fff;
 }
 
 .card-image {
