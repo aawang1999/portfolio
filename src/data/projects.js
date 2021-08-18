@@ -10,6 +10,13 @@ export const projects = [
   },
   {
     id: uuidv4(),
+    title: "Angular Task Tracker",
+    desc: "A simple Angular web app for task management with a mock JSON server backend",
+    github: "https://github.com/aawang1999/task-tracker-angular",
+    image: "./images/task-angular.jpg"
+  },
+  {
+    id: uuidv4(),
     title: "Restaurant List",
     desc: "A web app that allows you to manage restaurant entries (Express.js, Handlebars, MongoDB)",
     github: "https://github.com/aawang1999/restaurant-list-router",
