@@ -3,6 +3,7 @@ import Homepage from './components/Homepage'
 import Menu from './components/Menu'
 import About from './pages/About'
 import Projects from './pages/Projects'
+import ProjectsNew from "./pages/ProjectsNew"
 import Error from './pages/Error'
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
           <About />
         </Route>
         <Route path='/projects'>
-          <Projects />
+          <ProjectsNew />
         </Route>
         <Route path='*'>
           <Error />
