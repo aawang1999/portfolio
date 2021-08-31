@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Homepage from './components/Homepage'
 import Menu from './components/Menu'
 import About from './pages/About'
-import Projects from './pages/Projects'
 import ProjectsNew from "./pages/ProjectsNew"
 import Error from './pages/Error'
 
